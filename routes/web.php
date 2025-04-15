@@ -45,17 +45,9 @@ Route::post('reports/generate_multi_row_pdf', [App\Http\Controllers\ReportContro
 	Route::resource('permissions', App\Http\Controllers\PermissionsController::class);
 	Route::resource('users', App\Http\Controllers\UsersController::class);
 	Route::resource('brokers', App\Http\Controllers\BrokerController::class);
-	Route::resource('vehicles', App\Http\Controllers\VehicleController::class);
-	Route::resource('meter_histories', App\Http\Controllers\MeterHistoryController::class);
-	Route::resource('fuel_histories', App\Http\Controllers\FuelHistoryController::class);
-	Route::resource('vehicle_assignment_histories', App\Http\Controllers\VehicleAssignmentHistoryController::class);
-	Route::resource('fuels', App\Http\Controllers\FuelController::class);
-	Route::resource('dispatches', App\Http\Controllers\DispatchController::class);
+
 	Route::get('dispatch/vehicle_assignment', [App\Http\Controllers\DispatchController::class, 'vehicle_assignment'])->name('vehicle_assignment');
-	Route::get('dispatch/update_prev_cusomer_on_dispatch', [App\Http\Controllers\DispatchController::class, 'update_prev_cusomer_on_dispatch'])->name('update_prev_cusomer_on_dispatch');
-	Route::get('dispatch/update_prev_user_on_assign_dispatch', [App\Http\Controllers\DispatchController::class, 'update_prev_user_on_assign_dispatch'])->name('update_prev_user_on_assign_dispatch');
-	Route::get('dispatch/update_prev_emp_brok_on_ticket', [App\Http\Controllers\DispatchController::class, 'update_prev_emp_brok_on_ticket'])->name('update_prev_emp_brok_on_ticket');
-	/******need to update script on live 1-3-23 */
+
 	Route::get('dispatch/update_prev_emp_vehicle_assignment', [App\Http\Controllers\DispatchController::class, 'update_prev_emp_vehicle_assignment'])->name('update_prev_emp_vehicle_assignment');
 	Route::get('dispatch/update_prev_vehicle_number_on_assign_vehicle', [App\Http\Controllers\DispatchController::class, 'update_prev_vehicle_number_on_assign_vehicle'])->name('update_prev_vehicle_number_on_assign_vehicle');
 	Route::get('dispatch/update_prev_vehicle_airfilter_service_date', [App\Http\Controllers\DispatchController::class, 'update_prev_vehicle_airfilter_service_date'])->name('update_prev_vehicle_airfilter_service_date');
@@ -102,14 +94,3 @@ Route::get('/noaccess', [App\Http\Controllers\HomeController::class, 'noaccess']
 Route::get('/cron_notification/order_pending_notification', [App\Http\Controllers\CronController::class, 'order_pending_notification'])->name('order_pending_notification');
 Route::get('/cron_notification/cron_normal_service', [App\Http\Controllers\CronController::class, 'cron_normal_service'])->name('cron_normal_service');
 Route::get('/cron_notification/cron_air_filter', [App\Http\Controllers\CronController::class, 'cron_air_filter'])->name('cron_air_filter');
-Route::get('/notification_test/{id}', [App\Http\Controllers\HomeController::class, 'notification_test'])->name('notification_test');
-Route::get('/email_test/{id}', [App\Http\Controllers\HomeController::class, 'email_test'])->name('email_test');
-Route::get('/twillio_test/{id}', [App\Http\Controllers\HomeController::class, 'twillio_test'])->name('twillio_test');
-Route::get('/quickbook_test', [App\Http\Controllers\HomeController::class, 'quickbook_test'])->name('quickbook_test');
-Route::get('/vehicle_api/{id}', [App\Http\Controllers\HomeController::class, 'vehicle_api'])->name('vehicle_api');
-Route::get('/gas_api', [App\Http\Controllers\HomeController::class, 'gas_api'])->name('gas_api');
-Route::get('reports/employee_bill', [App\Http\Controllers\ReportController::class, 'employee_bill'])->name('employee_bill');
-Route::post('reports/generate_employee_invoice', [App\Http\Controllers\ReportController::class, 'generate_employee_invoice'])->name('generate_employee_invoice');
-Route::get('reports/employee_all_bills', [App\Http\Controllers\ReportController::class, 'employee_all_bills'])->name('employee_all_bills');
-Route::post('reports/quickbook_employee_bill_download_pdf', [App\Http\Controllers\ReportController::class, 'quickbook_employee_bill_download_pdf'])->name('quickbook_employee_bill_download_pdf');
-Route::post('reports/update_employee_payroll_bill_status', [App\Http\Controllers\ReportController::class, 'update_employee_payroll_bill_status'])->name('update_employee_payroll_bill_status');
